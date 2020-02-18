@@ -398,6 +398,8 @@ public class InAppWebViewClient extends WebViewClient {
 
   @Override
   public void onReceivedSslError(final WebView view, final SslErrorHandler handler, final SslError error) {
+    //to avoid self sign certified 
+    handler.proceed();
     URL url;
     try {
       url = new URL(error.getUrl());
